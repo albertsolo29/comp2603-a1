@@ -43,6 +43,21 @@ public class Package {
                    int lengthCm, int widthCm, int heightCm,
                    String destination, boolean isFragile, double declaredValue) {
         // TODO M2: Write validation and field assignments here
+        if(senderName == null|| senderName.isEmpty()){
+            throw new IllegalArgumentException("sender name should not be null or empty");
+        }
+
+        if(receiverName== null|| receiverName.isEmpty()){
+            throw new IllegalArgumentException("sender name should not be null or empty");
+        }
+
+        if(weightKg<= 0){
+            throw new IllegalArgumentException("the weight should be higher than 0");
+        }
+
+        if(lengthCm<=0||widthCm<=0||heightCm<=0){
+            throw new IllegalArgumentException("all the dimensions should be higher than 0")
+        }
     }
 
     /**
