@@ -86,10 +86,7 @@ public class Package {
     public Package(String senderName, String receiverName, double weightKg,
                    int lengthCm, int widthCm, int heightCm, String destination) {
         // TODO M3: Write the this(...) call here
-        this(senderName,receiverName, weightKg,lengthCm,widthCm,heightCm,destination);
-
-        this.isFragile=false;
-        this.declaredValue=0.0;
+        this(senderName,receiverName, weightKg,lengthCm,widthCm,heightCm,destination,false,0.0);
 
     }
 
@@ -98,6 +95,46 @@ public class Package {
     //   getTrackingId(), getSenderName(), getReceiverName(), getWeightKg(),
     //   getLengthCm(), getWidthCm(), getHeightCm(), getDestination(),
     //   isFragile(), getDeclaredValue()
+
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public String getReceiverName(){
+        return receiverName;
+    }
+
+    public double getWeightKg() {
+        return weightKg;
+    }
+
+    public int getLengthCm() {
+        return lengthCm;
+    }
+
+    public int getWidthCm() {
+        return widthCm;
+    }
+
+    public int getHeightCm() {
+        return heightCm;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public boolean isFragile() {
+        return isFragile;
+    }
+
+    public double getDeclaredValue() {
+        return declaredValue;
+    }
 
     // --- Computed methods ---
 
