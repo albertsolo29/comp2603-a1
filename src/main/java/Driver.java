@@ -8,12 +8,11 @@
 public class Driver {
 
     public static void main(String[] args) {
+        Package p1 = new Package("Alice", "Bob", 5.0, 40, 30, 20, "Trinidad");
+        System.out.println("id:" + p1.getTrackingId());
 
-        //new Package("", "Bob", 5.0, 40, 30, 20,"Trinidad", false, 0.0);
-
-        new Package("Alice", "Bob", 5.0, 40, 30, 20, "Trinidad", false,0.0);
-
-        //new Package("Alice", "Bob", 5.0, 40, 30, 20, "Mars", false, 0.0);
+        Package p2 = new Package("Carol", "Dan", 2.0, 60, 40, 40, "Barbados", true, 500.0);
+        System.out.println("id:" + p2.getTrackingId());
 
         // Step 1: Create the terminal
         // TODO M10: Create a FreightTerminal named "Port of Spain Hub"

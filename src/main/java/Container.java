@@ -47,6 +47,9 @@ public class Container {
      */
     public Container(String destination) {
         // TODO M3: Write the this(...) call here
+        this.destination=destination;
+        this.maxWeightKg=500.0;
+
     }
 
     // --- Getters ---
