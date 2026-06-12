@@ -56,8 +56,15 @@ public class Package {
         }
 
         if(lengthCm<=0||widthCm<=0||heightCm<=0){
-            throw new IllegalArgumentException("All the dimensions should be higher than 0")
+            throw new IllegalArgumentException("All the dimensions should be higher than 0");
         }
+
+
+        if (!VALID_DESTINATIONS.contains(destination)){
+            throw new IllegalArgumentException("Invalid destination");
+        }
+
+
     }
 
     /**
