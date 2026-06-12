@@ -9,6 +9,12 @@ public class Driver {
 
     public static void main(String[] args) {
 
+        //new Package("", "Bob", 5.0, 40, 30, 20,"Trinidad", false, 0.0);
+
+        new Package("Alice", "Bob", 5.0, 40, 30, 20, "Trinidad", false,0.0);
+
+        //new Package("Alice", "Bob", 5.0, 40, 30, 20, "Mars", false, 0.0);
+
         // Step 1: Create the terminal
         // TODO M10: Create a FreightTerminal named "Port of Spain Hub"
 
