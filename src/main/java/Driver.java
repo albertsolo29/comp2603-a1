@@ -9,10 +9,33 @@ public class Driver {
 
     public static void main(String[] args) {
         Package p1 = new Package("Alice", "Bob", 5.0, 40, 30, 20, "Trinidad");
-        System.out.println("id:" + p1.getTrackingId());
-
         Package p2 = new Package("Carol", "Dan", 2.0, 60, 40, 40, "Barbados", true, 500.0);
-        System.out.println("id:" + p2.getTrackingId());
+        Package p3 = new Package("Eve", "Frank", 10.0, 30, 30, 30, "Jamaica");
+        Package p4= new Package("Grace", "Hank", 3.5, 50, 50, 50, "Barbados", false, 200.0);
+        Package p5= new Package("Ivy", "Jack", 8.0, 20, 20, 20, "Trinidad", true, 1000.0);
+        Package p6= new Package("Kim", "Leo", 1.5, 100, 60, 40, "Antigua");
+        Package p7= new Package("Mia", "Noah", 15.0, 40, 40, 30, "Jamaica", true, 750.0);
+        Package p8 = new Package("Olivia", "Pat", 6.0, 35, 25, 15, "Grenada");
+        Package p9= new Package("Quinn", "Ray", 4.0, 45, 35, 25, "Trinidad", false, 100.0);
+        Package p10= new Package("Sara", "Tim", 20.0, 80, 60, 50, "Barbados", true, 2000.0);
+        Package p11= new Package("Uma", "Vic", 0.5, 15, 10, 10, "Grenada");
+        Package p12= new Package("Will", "Xia", 12.0, 50, 40, 30, "Antigua", true, 300.0);
+
+        FreightTerminal f = new FreightTerminal("test");
+        f.receivePackage(p1);
+        f.receivePackage(p2);
+        f.receivePackage(p3);
+        f.receivePackage(p4);
+        f.receivePackage(p5);
+        f.receivePackage(p6);
+        f.receivePackage(p7);
+        f.receivePackage(p8);
+        f.receivePackage(p9);
+        f.receivePackage(p10);
+        f.receivePackage(p11);
+        f.receivePackage(p12);
+        int count= f.getPendingCount();
+        System.out.println("count:"+count);
 
         // Step 1: Create the terminal
         // TODO M10: Create a FreightTerminal named "Port of Spain Hub"
