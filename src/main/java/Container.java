@@ -26,6 +26,19 @@ public class Container {
      */
     public Container(String destination, double maxWeightKg) {
         // TODO M2
+        if(destination==null){
+            throw new IllegalArgumentException("destination canot be null");
+        }
+
+        if(maxWeightKg<=0){
+            throw new IllegalArgumentException("max Weight has to be more than 0");
+        }
+
+        this.containerId=String.format("CNT-%03d", nextContainerId);
+        nextContainerId++;
+
+        this.packages =new ArrayList<Package>();
+
     }
 
     /**

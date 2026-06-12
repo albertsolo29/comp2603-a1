@@ -44,11 +44,11 @@ public class Package {
                    String destination, boolean isFragile, double declaredValue) {
         // TODO M2: Write validation and field assignments here
         if(senderName == null|| senderName.isEmpty()){
-            throw new IllegalArgumentException("sender name should not be null or empty");
+            throw new IllegalArgumentException("Sender name must not be null or empty");
         }
 
         if(receiverName== null|| receiverName.isEmpty()){
-            throw new IllegalArgumentException("Sender name should not be null or empty");
+            throw new IllegalArgumentException("Receiver name must not be null or empty");
         }
 
         if(weightKg<= 0){
