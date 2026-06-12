@@ -64,6 +64,17 @@ public class Package {
             throw new IllegalArgumentException("Invalid destination");
         }
 
+        this.trackingId= String.format("PKG-%04d", nextTrackingNumber);
+        nextTrackingNumber++;
+        this.senderName=senderName;
+        this.receiverName=receiverName;
+        this.weightKg=weightKg;
+        this.heightCm=heightCm;
+        this.lengthCm=lengthCm;
+        this.destination=destination;
+        this.isFragile=isFragile;
+        this.declaredValue=declaredValue;
+
 
     }
 
