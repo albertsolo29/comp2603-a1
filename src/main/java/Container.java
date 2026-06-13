@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Container {
 
     // TODO M1: Initialise this static counter to 1.
-    private static int nextContainerId;
+    private static int nextContainerId=1;
 
     // TODO M1: These fields are declared but not yet assigned.
     // Your constructors (M2, M3) must assign them.
@@ -36,7 +36,8 @@ public class Container {
 
         this.containerId=String.format("CNT-%03d", nextContainerId);
         nextContainerId++;
-
+        this.destination=destination;
+        this.maxWeightKg=maxWeightKg;
         this.packages =new ArrayList<Package>();
     }
 
@@ -46,8 +47,7 @@ public class Container {
      */
     public Container(String destination) {
         // TODO M3: Write the this(...) call here
-        this.destination=destination;
-        this.maxWeightKg=500.0;
+        this(destination,500.0);
 
     }
 

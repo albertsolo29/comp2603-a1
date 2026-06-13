@@ -39,8 +39,9 @@ public class Driver {
         f.receivePackage(p10);
         f.receivePackage(p11);
         f.receivePackage(p12);
-        int count= f.getPendingCount();
-        System.out.println("count:"+count);
+
+        int num= f.packContainers();
+        System.out.println(num+"    "+ f.getPendingCount()+"   "+f.getActiveContainers().size() );
 
         // Step 1: Create the terminal
         // TODO M10: Create a FreightTerminal named "Port of Spain Hub"
