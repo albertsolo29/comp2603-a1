@@ -74,7 +74,19 @@ public class Container {
      *   Return true on success.
      */
     public boolean addPackage(Package p) {
-        return false; // TODO M8
+        if (p==null){
+            return false; // TODO M8
+        }
+        if(!this.destination.equals(p.getDestination())){
+            return false;
+        }
+
+        if(getCurrentWeightKg() + p.getWeightKg() > maxWeightKg){
+            return false;
+        }
+
+        packages.add(p);
+        return true;
     }
 
     /**
