@@ -139,7 +139,16 @@ public class Container {
      * Use StringBuilder and String.format.
      */
     public String getManifest() {
-        return ""; // TODO M9
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("=== %s -> %s (%d packages, %.2f / %.2f kg) ===\n",containerId, destination, packages.size(), getCurrentWeightKg(), maxWeightKg));
+
+        for (Package p : packages) {
+            sb.append("  ").append(p.toString()).append("\n");
+        }
+
+        sb.append(String.format("  Container revenue: $%.2f", getTotalRevenue()));
+
+        return sb.toString(); // TODO M9
     }
 
     /**
@@ -155,6 +164,8 @@ public class Container {
      */
     @Override
     public String toString() {
-        return ""; // TODO M9
+        return String.format("%s -> %s [%d packages, %.2f / %.2f kg]",
+                containerId, destination, packages.size(),
+                getCurrentWeightKg(), maxWeightKg); // TODO M9
     }
 }
