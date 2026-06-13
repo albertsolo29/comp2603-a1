@@ -83,7 +83,13 @@ public class FreightTerminal {
      *   Clear activeContainers. Return the count dispatched.
      */
     public int dispatchAll() {
-        return 0; // TODO M9
+
+        int count = activeContainers.size();
+
+        dispatchedContainers.addAll(activeContainers);
+        activeContainers.clear();
+
+        return count; // TODO M9
     }
 
     /**
@@ -91,7 +97,13 @@ public class FreightTerminal {
      *   dispatched containers.
      */
     public double getTotalRevenue() {
-        return 0.0; // TODO M9
+        double total = 0.0;
+
+        for (Container c : dispatchedContainers) {
+            total += c.getTotalRevenue();
+        }
+
+        return total;// TODO M9
     }
 
     /**
@@ -99,7 +111,13 @@ public class FreightTerminal {
      *   dispatched containers.
      */
     public int getTotalPackagesShipped() {
-        return 0; // TODO M9
+        int total = 0;
+
+        for (Container c : dispatchedContainers) {
+            total += c.getPackageCount();
+        }
+
+        return total; // TODO M9
     }
 
     /**
@@ -108,6 +126,23 @@ public class FreightTerminal {
      *   Return the Package or null if not found.
      */
     public Package findPackage(String trackingId) {
+        
+        for (Package p : pendingPackages) {
+            if (p.getTrackingId().equals(trackingId)) return p;
+        }
+
+        for (Container c : activeContainers) {
+            for (Package p : c.getPackages()) {
+                if (p.getTrackingId().equals(trackingId)) return p;
+            }
+        }
+
+        for (Container c : dispatchedContainers) {
+            for (Package p : c.getPackages()) {
+                if (p.getTrackingId().equals(trackingId)) return p;
+            }
+        }
+
         return null; // TODO M9
     }
 

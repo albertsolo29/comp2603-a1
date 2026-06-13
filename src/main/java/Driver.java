@@ -39,7 +39,11 @@ public class Driver {
         f.receivePackage(p10);
         f.receivePackage(p11);
         f.receivePackage(p12);
-
+        System.out.println(f.getTotalRevenue());
+        System.out.println(f.getTotalPackagesShipped());
+        System.out.println(f.findPackage("PKG-0005"));
+        System.out.println(f.findPackage("PKG-9999"));
+        System.out.println("-------------");
         int num= f.packContainers();
         System.out.println(num+"    "+ f.getPendingCount()+"   "+f.getActiveContainers().size() );
 
@@ -47,6 +51,10 @@ public class Driver {
         c.addPackage(p1);
         System.out.println(c.getManifest());
         System.out.println(c.toString());
+
+
+
+
         // Step 1: Create the terminal
         // TODO M10: Create a FreightTerminal named "Port of Spain Hub"
 
