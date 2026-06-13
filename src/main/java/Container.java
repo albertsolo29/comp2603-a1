@@ -38,7 +38,6 @@ public class Container {
         nextContainerId++;
 
         this.packages =new ArrayList<Package>();
-
     }
 
     /**

@@ -21,6 +21,9 @@ public class Driver {
         Package p11= new Package("Uma", "Vic", 0.5, 15, 10, 10, "Grenada");
         Package p12= new Package("Will", "Xia", 12.0, 50, 40, 30, "Antigua", true, 300.0);
 
+        System.out.println(p2.getVolumeCm3()+"  " +p2.getVolumetricWeightKg()+"   "+p2.getBillableWeightKg());
+
+
         FreightTerminal f = new FreightTerminal("test");
         f.receivePackage(p1);
         f.receivePackage(p2);
