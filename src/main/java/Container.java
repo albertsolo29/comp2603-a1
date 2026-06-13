@@ -93,28 +93,38 @@ public class Container {
      * TODO M8: Return the sum of all packages' weightKg.
      */
     public double getCurrentWeightKg() {
-        return 0.0; // TODO M8
+        double totalWeight =0.0;
+
+        for (Package p :packages){
+            totalWeight+=p.getWeightKg();
+        }
+
+        return totalWeight; // TODO M8
     }
 
     /**
      * TODO M8: Return maxWeightKg - getCurrentWeightKg()
      */
     public double getRemainingCapacityKg() {
-        return 0.0; // TODO M8
+        return maxWeightKg- getCurrentWeightKg(); // TODO M8
     }
 
     /**
      * TODO M8: Return the number of packages in this container.
      */
     public int getPackageCount() {
-        return 0; // TODO M8
+        return packages.size(); // TODO M8
     }
 
     /**
      * TODO M8: Return the sum of all packages' getShippingCost().
      */
     public double getTotalRevenue() {
-        return 0.0; // TODO M8
+        double totalcost=0.0;
+        for (Package p :packages){
+            totalcost+=p.getShippingCost();
+        }
+        return totalcost; // TODO M8
     }
 
     /**
