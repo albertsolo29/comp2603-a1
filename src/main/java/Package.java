@@ -68,6 +68,7 @@ public class Package {
         nextTrackingNumber++;
         this.senderName=senderName;
         this.receiverName=receiverName;
+        this.widthCm=widthCm;
         this.weightKg=weightKg;
         this.heightCm=heightCm;
         this.lengthCm=lengthCm;

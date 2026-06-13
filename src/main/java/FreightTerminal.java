@@ -126,7 +126,7 @@ public class FreightTerminal {
      *   Return the Package or null if not found.
      */
     public Package findPackage(String trackingId) {
-        
+
         for (Package p : pendingPackages) {
             if (p.getTrackingId().equals(trackingId)) return p;
         }
@@ -168,6 +168,24 @@ public class FreightTerminal {
      *     ...
      */
     public void printDailyReport() {
+        int totalPkgsReceived = pendingPackages.size();
+        for (Container c : activeContainers) totalPkgsReceived += c.getPackageCount();
+        for (Container c : dispatchedContainers) totalPkgsReceived += c.getPackageCount();
+
+        int containersPacked = activeContainers.size() + dispatchedContainers.size();
+
+        System.out.println("=== Daily Report: " + terminalName + " ===");
+        System.out.println("Packages received: " + totalPkgsReceived);
+        System.out.println("Containers packed: " + containersPacked);
+        System.out.println("Packages shipped: " + getTotalPackagesShipped());
+        System.out.printf("Total revenue: $%.2f\n", getTotalRevenue());
+        System.out.println();
+        System.out.println("Revenue by destination:");
+
+        for (Container c : dispatchedContainers) {
+            System.out.printf("  %-12s $%.2f (%d packages)%n",
+                    c.getDestination() + ":", c.getTotalRevenue(), c.getPackageCount());
+        }
         // TODO M10
     }
 }

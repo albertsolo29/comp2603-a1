@@ -8,6 +8,9 @@
 public class Driver {
 
     public static void main(String[] args) {
+
+        FreightTerminal terminal = new FreightTerminal("Port of Spain Hub");
+
         Package p1 = new Package("Alice", "Bob", 5.0, 40, 30, 20, "Trinidad");
         Package p2 = new Package("Carol", "Dan", 2.0, 60, 40, 40, "Barbados", true, 500.0);
         Package p3 = new Package("Eve", "Frank", 10.0, 30, 30, 30, "Jamaica");
@@ -21,38 +24,50 @@ public class Driver {
         Package p11= new Package("Uma", "Vic", 0.5, 15, 10, 10, "Grenada");
         Package p12= new Package("Will", "Xia", 12.0, 50, 40, 30, "Antigua", true, 300.0);
 
-        System.out.println(p2.getVolumeCm3()+"  " +p1.getShippingCost()+"   "+p2.getBillableWeightKg());
+        terminal.receivePackage(p1);
+        terminal.receivePackage(p2);
+        terminal.receivePackage(p3);
+        terminal.receivePackage(p4);
+        terminal.receivePackage(p5);
+        terminal.receivePackage(p6);
+        terminal.receivePackage(p7);
+        terminal.receivePackage(p8);
+        terminal.receivePackage(p9);
+        terminal.receivePackage(p10);
+        terminal.receivePackage(p11);
+        terminal.receivePackage(p12);
+
+        System.out.println("=== Pending: " + terminal.getPendingCount() + " packages ===");
 
         System.out.println(p1.toString());
+        System.out.printf("Shipping cost: $%.2f\n", p1.getShippingCost());
+        System.out.println();
+
+        int containersPacked = terminal.packContainers();
+        System.out.println("Packed into " + containersPacked + " containers");
+        System.out.println();
+
+        for (Container c : terminal.getActiveContainers()) {
+            System.out.println(c.getManifest());
+            System.out.println();
+        }
+
+        int containersDispatched = terminal.dispatchAll();
+        System.out.println("Dispatched " + containersDispatched + " containers");
+        System.out.println();
 
 
-        FreightTerminal f = new FreightTerminal("test");
-        f.receivePackage(p1);
-        f.receivePackage(p2);
-        f.receivePackage(p3);
-        f.receivePackage(p4);
-        f.receivePackage(p5);
-        f.receivePackage(p6);
-        f.receivePackage(p7);
-        f.receivePackage(p8);
-        f.receivePackage(p9);
-        f.receivePackage(p10);
-        f.receivePackage(p11);
-        f.receivePackage(p12);
-        System.out.println(f.getTotalRevenue());
-        System.out.println(f.getTotalPackagesShipped());
-        System.out.println(f.findPackage("PKG-0005"));
-        System.out.println(f.findPackage("PKG-9999"));
-        System.out.println("-------------");
-        int num= f.packContainers();
-        System.out.println(num+"    "+ f.getPendingCount()+"   "+f.getActiveContainers().size() );
+        terminal.printDailyReport();
+        System.out.println();
 
-        Container c = new Container("Trinidad");
-        c.addPackage(p1);
-        System.out.println(c.getManifest());
-        System.out.println(c.toString());
+        Package found = terminal.findPackage("PKG-0005");
+        System.out.println("Found: " + found);
 
 
+        Package notFound = terminal.findPackage("PKG-9999");
+        if (notFound == null) {
+            System.out.println("PKG-9999: Not found");
+        }
 
 
         // Step 1: Create the terminal
