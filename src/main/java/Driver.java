@@ -23,6 +23,8 @@ public class Driver {
 
         System.out.println(p2.getVolumeCm3()+"  " +p1.getShippingCost()+"   "+p2.getBillableWeightKg());
 
+        System.out.println(p1.toString());
+
 
         FreightTerminal f = new FreightTerminal("test");
         f.receivePackage(p1);
